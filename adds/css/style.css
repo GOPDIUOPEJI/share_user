@@ -5,6 +5,10 @@
 	margin-bottom: 10px;
 }
 
+h2.error {
+	color: #ff0000;
+}
+
 .user-block>div {
 	position: relative;
 	padding: 10px;

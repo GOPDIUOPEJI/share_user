@@ -29,7 +29,6 @@ add_action( 'admin_enqueue_scripts', 'add_scripts');
 
 function add_user_profile_fields( $user ) { 
     $share_user = new ShareUser();
-    $share_user->generate_rsa($user->ID);
 	$share_user->get_interface();
     $enc = $share_user->encrypt_string('asdasdasd', $user->ID);
 }
@@ -42,6 +41,7 @@ function save_user_profile_fields( $user_id ) {
         return false; 
     }
     $share_user = new ShareUser();
+    $share_user->generate_rsa($user_id);
     update_user_meta( $user_id, 'address', $share_user->encrypt_string($_POST['address'], $user_id));
     update_user_meta( $user_id, 'phone', $share_user->encrypt_string($_POST['phone'], $user_id) );
     update_user_meta( $user_id, 'gender', $share_user->encrypt_string($_POST['gender'], $user_id) );

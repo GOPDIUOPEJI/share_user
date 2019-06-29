@@ -7,11 +7,13 @@
     }
     $share_user = new ShareUser();
     $user_data = $share_user->get_user_meta_data($user_id);
+    $is_valid_rsa = $share_user->test_rsa($user_id);
     
  ?>
 <h3><?php _e("Share User Information", "blank"); ?></h3>
 
 <table class="form-table">
+    <?= !($is_valid_rsa) ? '<h2 class="error">Error Wrong Private Key, check README in plugin folder for instructions</h2>' : ''  ?>
 <tr>
     <th><label for="address"><?php _e("Address"); ?></label></th>
     <td>
