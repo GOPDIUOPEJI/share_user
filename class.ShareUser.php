@@ -40,6 +40,9 @@ class ShareUser {
 		$rsa->loadKey($privatekey);
 		$rsa->setEncryptionMode(RSA::ENCRYPTION_PKCS1);
 		$ciphertext = $rsa->decrypt($string);
+		if(!$ciphertext){
+			return "Decryption Error, file private key is WRONG!";
+		}
 		return $ciphertext;
 	}
 	/*This method returns true if current user is administrator and false if not*/
