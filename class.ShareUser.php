@@ -61,4 +61,15 @@ class ShareUser {
 		$result['maristat'] = $this->decrypt_string(esc_attr( get_the_author_meta( 'maristat', $user_id ) ), $user_id);
 		return $result;
 	}
+
+	/*This method checks is valid rsa-keys*/
+	public function test_rsa($user_id) {
+		$encrypted = $this->encrypt_string('test', $user_id);
+		$decrypted = $this->decrypt_string($encrypted, $user_id);
+		if($decrypted != 'test'){
+			return false;
+		} else {
+			return true;
+		}
+	}
 }
