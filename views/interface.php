@@ -7,9 +7,6 @@
     }
     $share_user = new ShareUser();
     $user_data = $share_user->get_user_meta_data($user_id);
-    foreach ($user_data as $key => $value) {
-        $user_data[$key] = $share_user->decrypt_string($value, $user_id);
-    }
     
  ?>
 <h3><?php _e("Share User Information", "blank"); ?></h3>
