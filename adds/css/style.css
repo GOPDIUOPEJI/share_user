@@ -1,0 +1,49 @@
+.user-block {
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+	margin-bottom: 10px;
+}
+
+.user-block>div {
+	position: relative;
+	padding: 10px;
+	width: 20%;
+	flex-direction: column;
+	display: flex;
+	justify-content: center;
+}
+
+.user-block h3 {
+	margin: 0;
+	word-wrap: break-word;
+}
+
+.user-block .sub {
+	position: absolute;
+	top: 10px;
+	right: auto;
+}
+
+@media screen and (max-width: 576px) {
+	.user-block {
+		flex-direction: column;
+		margin: 0 auto 10px;
+		max-width: 300px;
+		border: 2px solid #fff;
+		padding: 10px;
+	}
+
+	.user-block>div {
+		width: 100%;
+		text-align: center;
+	}
+
+	.user-block .sub {
+		position: static;
+	}
+
+	.user-block>div img {
+		margin: 0 auto;
+	}
+}
