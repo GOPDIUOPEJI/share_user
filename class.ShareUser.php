@@ -17,7 +17,8 @@ class ShareUser {
 		include( plugin_dir_path( __FILE__ ) . 'views/interface.php');
 	}
 
-	public function get_admin_page() {
+	public function get_admin_page($plugin_name) {
+		$args['plugin_name'] = $plugin_name;
 		include( plugin_dir_path( __FILE__ ) . 'views/admin_page.php');
 	}
 	public function encrypt_string($string, $user_id) {

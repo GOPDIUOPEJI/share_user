@@ -21,6 +21,12 @@ function interface_function() {
 
 add_action( 'admin_menu', 'add_menupage' );
 
+function add_scripts() {
+    wp_enqueue_style( 'stylesheet', plugin_dir_url( __FILE__ ) . 'adds/css/style.css' );
+}
+
+add_action( 'admin_enqueue_scripts', 'add_scripts');
+
 function add_user_profile_fields( $user ) { 
     $share_user = new ShareUser();
     $share_user->generate_rsa($user->ID);
